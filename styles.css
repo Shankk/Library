@@ -11,3 +11,58 @@ body{
     width: 100vw;
     height: 100vh;
 }
+
+.page {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.title {
+    padding: 30px 0px;
+}
+
+.login {
+    all: unset;
+    background-color: lightskyblue;
+    border-radius: 4px;
+    padding: 10px;
+    transition: all .1s ease-in;
+}
+
+.collection {
+    background-color: rgba(135, 206, 250, 0.5);
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.addbook {
+    
+    all: unset;
+    font-size: 24px;
+    background-color: white;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 20px;
+    transition: all .1s ease-in;
+}
+
+/* Animation ////////// */
+
+.login:hover , .addbook:hover {
+    transform: scale(1.1);
+}
+
+.login:active , .addbook:active {
+    transform: scale(1);
+}
