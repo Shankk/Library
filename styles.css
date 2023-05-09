@@ -48,7 +48,7 @@ body{
     margin-top: 20px;
 }
 
-.modal {
+.overlay {
     background-color: rgba(0, 0, 0, 0.5);
     
     height: 100vh;
@@ -63,14 +63,14 @@ body{
     transition: 0.5s ease-in-out;
 }
 
-.modal_add {
+.bookForm {
     background-color: skyblue;
     border: 1px solid black;
     border-radius: 1em;
     padding: 2em;
 }
 
-.modal_header {
+.form_header {
     display: flex;
     justify-content: space-between;
 }
@@ -90,7 +90,7 @@ body{
 
 /* Animation ////////// */
 
-.modal.active {
+.overlay.active {
     transform: scale(1);
     opacity: 1;
 }
