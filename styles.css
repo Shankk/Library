@@ -19,6 +19,7 @@ body{
 }
 
 .header {
+    background-color: darkcyan;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
@@ -30,21 +31,49 @@ body{
 }
 
 .login {
-    background-color: lightskyblue;
+    background-color: lightblue;
 }
 
 .main {
-    background-color: rgba(135, 206, 250, 0.5);
+    background-color: lightblue;
+    padding: 1rem;
+    width: 100%;
     height: 100%;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+}
+
+.book-collection {
+    display: flex;
+    width: 100%;
+    height: 90%;
+    flex-flow: row wrap;
+    gap: 2rem;
+}
+
+.card {
+    width: auto;
+    height: 200px;
+    background-color: darkcyan;
+    border-radius: 8px;
+
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.card-buttons {
+    display: flex;
+    padding-top: 1rem;
+    gap: 1rem;
 }
 
 .addbook {
     font-size: 24px;
-    background-color: white;
+    background-color: darkcyan;
     margin-top: 20px;
 }
 
@@ -64,8 +93,8 @@ body{
 }
 
 .bookForm {
-    background-color: skyblue;
-    border: 1px solid black;
+    background-color: darkcyan;
+    border: 2px solid black;
     border-radius: 1em;
     padding: 2em;
 }
@@ -105,7 +134,7 @@ button:active {
 
 button {
     all: unset;
-    background-color: white;
+    background-color: lightblue;
     border-radius: 4px;
     text-align: center;
     padding: 10px;

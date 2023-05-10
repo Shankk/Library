@@ -21,41 +21,19 @@ function addBookToLibrary() {
     createBookList();
 }
 
-//Create Book Library to the page
-function createBookList() {
-    const bookShelf = document.querySelector('#book-collection');
-
-    bookShelf.textContent = '';
-
-    for(let i = 0; i < Library.length; i++) {
-        const book = Library[i];
-        const card = document.createElement('div');
-
-        const readClass = book.status == '1' ? 'read' : 'not-read';
-        const readText = book.status == '1' ? 'Read' : 'Not Read';
-        
-        card.innerHTML = `
-        <div class="card">
-            <h2>${book.title}</h2>
-            <p><i>by ${book.author}</i></p>
-            <p>${book.pages} pages</p>
-            <div class="card-buttons">
-                <button class="check-read ${readClass}" onclick="toggleRead(${i})">${readText}</button>
-                <button class="remove-btn" onclick="removeBook(${i})">Remove</button>
-            </div>
-        </div>`;
-
-        bookShelf.appendChild(card);
-    }
-}
-
 // Book Read Toggle
-Book.prototype.toggleRead = function () {
-    this.status = this.status == '0' ? this.status = '1' : this.status = '0'
+Book.prototype.toggleReadVal = function () {
+    if(this.status == '0'){
+        this.status = '1';
+    }
+    else{
+        this.status = '0';
+    }
+    //this.status = this.status === '0' ? this.status = '1' : this.status = '0'
 };
 
 function toggleRead(index) {
-    Library[index].toggleRead();
+    Library[index].toggleReadVal();
     createBookList();
 }
 
@@ -63,6 +41,61 @@ function removeBook(index) {
     Library.splice(index, 1);
     createBookList();
 }
+
+//Create Book Library to the page
+function createBookList() {
+    const bookShelf = document.querySelector('.book-collection');
+    
+    bookShelf.textContent = '';
+    
+
+    for(let i = 0; i < Library.length; i++) {
+        
+        const book = Library[i];
+        const readClass = book.status == '1' ? 'read' : 'not-read';
+        const readText = book.status == '1' ? 'Read' : 'Not Read';
+        
+        
+        const card = document.createElement('div');
+        const title = document.createElement('h2');
+        const author = document.createElement('p');
+        const pages = document.createElement('p');
+        const btnContainer = document.createElement('div');
+        const readBtn = document.createElement('button');
+        const removeBtn = document.createElement('button');
+
+        card.className = "card";
+        title.textContent = book.title;
+        author.textContent = book.author;
+        pages.textContent = book.pages;
+        btnContainer.className = "card-buttons";
+        readBtn.className = "check-read";
+        readBtn.textContent = readText;
+        readBtn.id = i;
+        removeBtn.className = "remove-btn";
+        removeBtn.textContent = "Remove";
+        removeBtn.id = i;
+
+        readBtn.addEventListener('click', () => {
+            toggleRead(readBtn.id)
+        });
+        removeBtn.addEventListener('click', () => {
+            removeBook(removeBtn.id)
+        });
+
+        btnContainer.appendChild(readBtn);
+        btnContainer.appendChild(removeBtn);
+
+        card.appendChild(title);
+        card.appendChild(author);
+        card.appendChild(pages);
+        card.appendChild(btnContainer);
+        
+        bookShelf.appendChild(card);
+    }
+}
+
+
 
 
 //User Interface
